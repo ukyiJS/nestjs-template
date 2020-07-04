@@ -23,7 +23,7 @@ export class Cats {
 
   @Expose()
   @Column()
-  @Field(() => Date)
+  @Field()
   createdAt: number;
 
   constructor(cats: Partial<Cats>) {
