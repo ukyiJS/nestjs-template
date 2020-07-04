@@ -1,7 +1,7 @@
 import { Module, CacheModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CacheService } from './config/cache';
+import { CacheService } from './config';
 
 @Module({
   imports: [CacheModule.registerAsync({ useClass: CacheService })],
