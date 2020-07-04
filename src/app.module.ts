@@ -1,14 +1,16 @@
 import { CacheModule, Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
-import { CacheService, GraphqlService } from './config';
-import { GraphQLModule } from '@nestjs/graphql';
+import { CacheService, GraphqlService, TypeormService } from './config';
 
 @Module({
   imports: [
     CacheModule.registerAsync({ useClass: CacheService }),
     GraphQLModule.forRootAsync({ useClass: GraphqlService }),
+    TypeOrmModule.forRootAsync({ useClass: TypeormService }),
   ],
   controllers: [AppController],
   providers: [AppService, AppResolver],
