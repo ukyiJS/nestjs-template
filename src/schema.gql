@@ -2,6 +2,24 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Cats {
+  _id: String!
+  name: String!
+  kind: String!
+  createdAt: Float!
+}
+
 type Query {
   getHello: String!
+  findCats: [Cats!]!
+  findCatsByName(name: String!): Cats!
+}
+
+type Mutation {
+  addCats(cats: CatsInput!): Cats!
+}
+
+input CatsInput {
+  name: String!
+  kind: String!
 }
