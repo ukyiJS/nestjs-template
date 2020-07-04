@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
+import { CatsModule } from './cats/cats.module';
 import { CacheService, GraphqlService, TypeormService } from './config';
 
 @Module({
@@ -11,6 +12,7 @@ import { CacheService, GraphqlService, TypeormService } from './config';
     CacheModule.registerAsync({ useClass: CacheService }),
     GraphQLModule.forRootAsync({ useClass: GraphqlService }),
     TypeOrmModule.forRootAsync({ useClass: TypeormService }),
+    CatsModule,
   ],
   controllers: [AppController],
   providers: [AppService, AppResolver],
