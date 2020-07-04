@@ -14,4 +14,8 @@ export class CatsService {
   findCatsByName(name: string): Promise<Cats> {
     return this.catsRepository.findOne({ name });
   }
+
+  addCats(cats: Cats): Promise<Cats> {
+    return this.catsRepository.save(new Cats(cats));
+  }
 }
