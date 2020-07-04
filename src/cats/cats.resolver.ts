@@ -1,6 +1,7 @@
-import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CatsService } from './cats.service';
 import { Cats } from './model/cats.entity';
+import { CatsInput } from './model/cats.input';
 
 @Resolver('Cats')
 export class CatsResolver {
@@ -17,7 +18,7 @@ export class CatsResolver {
   }
 
   @Mutation(() => Cats)
-  addCats(@Args('cats') cats: Cats): Promise<Cats> {
+  addCats(@Args('cats') cats: CatsInput): Promise<Cats> {
     return this.catsService.addCats(cats);
   }
 }
