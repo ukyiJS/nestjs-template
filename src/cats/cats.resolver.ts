@@ -1,4 +1,4 @@
-import { Resolver, Query, Args } from '@nestjs/graphql';
+import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
 import { CatsService } from './cats.service';
 import { Cats } from './model/cats.entity';
 
@@ -14,5 +14,10 @@ export class CatsResolver {
   @Query(() => Cats)
   findCatsByName(@Args('name') name: string): Promise<Cats> {
     return this.catsService.findCatsByName(name);
+  }
+
+  @Mutation(() => Cats)
+  addCats(@Args('cats') cats: Cats): Promise<Cats> {
+    return this.catsService.addCats(cats);
   }
 }
