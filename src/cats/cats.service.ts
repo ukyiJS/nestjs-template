@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Cats } from './model/cats.entity';
 import { MongoRepository } from 'typeorm';
+import { Cats } from './model/cats.entity';
+import { CatsInput } from './model/cats.input';
 
 @Injectable()
 export class CatsService {
@@ -15,7 +16,7 @@ export class CatsService {
     return this.catsRepository.findOne({ name });
   }
 
-  addCats(cats: Cats): Promise<Cats> {
+  addCats(cats: CatsInput): Promise<Cats> {
     return this.catsRepository.save(new Cats(cats));
   }
 }
