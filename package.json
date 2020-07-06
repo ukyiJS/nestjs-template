@@ -64,6 +64,7 @@
     "prettier": "^1.19.1",
     "serverless": "^1.74.1",
     "serverless-offline": "^6.4.0",
+    "serverless-plugin-warmup": "^4.9.0",
     "supertest": "^4.0.2",
     "ts-jest": "26.1.0",
     "ts-loader": "^6.2.1",
