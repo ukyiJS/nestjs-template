@@ -1,24 +1,60 @@
-service: nestjs-template
+service: nestjs-template # Dashboard App 의 서비스 섹션에 생기는 App 보다 작은 단위다.
 
 provider:
-  name: aws
-  runtime: nodejs12.x
-  stage: ${opt:stage,'api'}
-  region: ap-northeast-2
-  profile: default
-  environment:
-    NODE_ENV: production
-    SERVICE: ${self:service}
-    STAGE: ${self:provider.stage}
-    REGION: ${self:provider.region}
+  name: aws # aws, azure 등 Vendor 지정
+  runtime: nodejs12.x # 사용 언어
+  stage: api # stage 명
+  region: ap-northeast-2 # ap-northeast-1 (도쿄), ap-northeast-2 (서울)
+  stackName: nestjs-template # CloudFormation 에 생성될 Stack Name
+  apiName: nestjs-template # API Gateway 에 생성될 API Name
 
-plugins:
-  - serverless-offline
-  - serverless-plugin-warmup
+  environment: # 람다에서 사용될 공통 환경변수 아래 custom 으로 설정되어 있음
+    NODE_ENV: ${self:custom.env.NODE_ENV}
+    MONGODB_ATLAS_USER: ${self:custom.env.MONGODB_ATLAS_USER}
+    MONGODB_ATLAS_PASS: ${self:custom.env.MONGODB_ATLAS_PASS}
+    MONGODB_ATLAS_HOST: ${self:custom.env.MONGODB_ATLAS_HOST}
+    MONGODB_ATLAS_DATABASE: ${self:custom.env.MONGODB_ATLAS_DATABASE}
+    MODE: 'Serverless' # Jest 테스트 시 환경변수를 custom 이 아닌 직접 configuration 해주기 위한 변수
 
-custom:
-  warmup:
-    enabled: true
+  # role: arn:aws:iam::878392923027:role/service-role/mysql_usage # 람다 함수 실행 Role
+  # vpc: # VPC 그룹
+  #   securityGroupIds: # 보안 그룹 ID
+  #     - sg-03d21453c7b42d0c6
+  #     - sg-049fd41a232c36553
+  #   subnetIds: # 서브넷 ID
+  #     - subnet-0f1ec8b88844fe72d
+  #     - subnet-07a2a9768d54219d3
+
+functions: # 람다 함수 리스트
+  index: # 람다 함수 readAll
+    handler: dist/index.handler # 람다 함수 위치
+    name: nestjs-template # 람다 함수명
+    description: nestjs-template # 람다 함수 설명
+    events:
+      - http: # API Gateway
+          path: '{proxy+}' # URI Path
+          method: any # HTTP Method
+          cors: true # CORS Enable
+      - http:
+          path: '/'
+          method: any
+          cors: true
+
+custom: # Custom 옵션
+  stages:
+    - dev
+  env: ${file(env.${opt:alias,'dev'}.json)} # CLI 입력시 --alias `alias 명` 에 따라 config 파일을 다르게 불러옴. 불러운 변수는 위의 provider.environment 에서 씀
+  # webpack: # Webpack 설정파일 Path
+  #   webpackConfig: ./webpack.config.js
+  #   includeModules: true
+  # customDomain: # CloudFront 인스턴스 생성 및 Route53 도메인 레코드 생성시 필요한 부분
+  #   domainName: ${self:custom.env.domain.name} # 도메인명
+  #   stage: ${opt:alias,'dev'}
+  #   basePath: api # /api 기본 Path 로 설정함
+  #   certificateName: ${self:custom.env.domain.cert} # ACM 에서 생성한 SSL 인증서
+  #   createRoute53Record: true # Route53 레코드 생성여부.
+  #   endpointType: 'edge' # regional or edge 리전별 캐싱 전략에 대한 부분 선택할 수 있음
+  #   securityPolicy: tls_1_2 # TLS policy 정책
 
 package:
   exclude:
@@ -27,17 +63,10 @@ package:
     - test/**
     - e2e/**
     - README.md
-  excludeDevDependencies: true
+  individually: true
 
-functions:
-  index:
-    handler: dist/index.handler
-    events:
-      - http:
-          cors: true
-          path: '{proxy+}'
-          method: any
-      - http:
-          cors: true
-          path: '/'
-          method: any
+plugins: # 설치한 Serverless 플러그인 리스트
+  - serverless-offline
+  - serverless-aws-alias
+  # - serverless-webpack
+  - serverless-domain-manager
