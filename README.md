@@ -1,11 +1,5 @@
-<div style="display: flex; justify-content: center;">
-  <a href="http://nestjs.com/" target="blank" style="margin-right:3rem;">
-    <img src="https://docs.nestjs.com/assets/logo-small.svg" style="height: 160px;" />
-  </a>
-  <a href="https://graphql.org/" target="blank" style="margin-right:3rem;">
-    <img src="https://graphql.org/img/logo.svg" style="height: 160px;">
-  </a>
-</div>
+<a href="http://nestjs.com/" target="blank"><img src="https://docs.nestjs.com/assets/logo-small.svg" width="160" /></a>
+<a href="https://graphql.org/" target="blank"><img src="https://graphql.org/img/logo.svg" width="160" /></a>
 
 ## Description
 
