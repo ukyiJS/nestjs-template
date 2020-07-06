@@ -43,6 +43,7 @@ $ npm run test:cov
 
 - [NestJS](https://nestjs.com/)
 - [Graphql](https://graphql.org/)
+- [Serverless](https://www.serverless.com/)
 - [Typeorm](https://typeorm.io/)
 - [MongoDB](https://www.mongodb.com/)
 - [Typescript](https://www.typescriptlang.org/)
