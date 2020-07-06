@@ -1,8 +1,6 @@
-<div style="display: flex; justify-content: center;">
-  <a href="http://nestjs.com/" target="blank" style="margin-right:3rem;">
-    <img src="https://docs.nestjs.com/assets/logo-small.svg" width="160" style="height: 160px;" />
-  </a>
-</div>
+<a href="http://nestjs.com/" target="blank">
+  <img src="https://docs.nestjs.com/assets/logo-small.svg" width="160" />
+</a>
 
 ## Description
 
