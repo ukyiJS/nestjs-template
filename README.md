@@ -1,6 +1,8 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+<div style="display: flex; justify-content: center;">
+  <a href="http://nestjs.com/" target="blank" style="margin-right:3rem;">
+    <img src="https://docs.nestjs.com/assets/logo-small.svg" style="height: 160px;" />
+  </a>
+</div>
 
 ## Description
 
@@ -37,3 +39,11 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Used Technologies and Libraries
+
+- [NestJS](https://nestjs.com/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/)
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
