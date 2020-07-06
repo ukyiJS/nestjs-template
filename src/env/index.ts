@@ -7,7 +7,7 @@ dotenv.config({ path });
 export const {
   PORT = 3000,
   DOMAIN,
-  NODE_ENV = 'production',
+  NODE_ENV = 'development',
   IS_OFFLINE,
   MONGODB_PORT = 11049,
   MONGODB_ATLAS_USER,
