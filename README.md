@@ -1,6 +1,6 @@
-<a href="http://nestjs.com/" target="blank"><img src="https://docs.nestjs.com/assets/logo-small.svg" width="160"/></a>
-<a href="https://graphql.org/" target="blank"><img src="https://graphql.org/img/logo.svg" width="160"></a>
-<a href="https://typeorm.io/" target="blank"><img src="https://github.com/typeorm/typeorm/raw/master/resources/logo_big.png" width="320"></a>
+<a href="http://nestjs.com/" target="_blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/typeorm/src/assets/img/nest.svg" height="160"/></a>
+<a href="https://graphql.org/" target="_blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/typeorm/src/assets/img/graphql.svg" height="160"></a>
+<a href="https://www.serverless.com/" target="_blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/typeorm/src/assets/img/serverless.svg" height="160"></a>
 
 ## Description
 
