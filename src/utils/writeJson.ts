@@ -1,8 +1,6 @@
 import { Logger } from '@nestjs/common';
-import * as fs from 'fs';
+import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
-
-const { mkdir, writeFile } = fs.promises;
 
 type WriteJson = {
   data: any;
@@ -13,11 +11,11 @@ export const writeJson = async ({ data, fileName, dirName = '' }: WriteJson): Pr
   const saveDir = join(process.cwd(), dirName);
   const jsonFileName = `${saveDir}/${fileName}.json`;
 
-  if (!fs.existsSync(saveDir)) {
-    await mkdir(saveDir);
+  if (!existsSync(saveDir)) {
+    mkdirSync(saveDir);
     Logger.log(saveDir, 'WriteDir');
   }
 
-  await writeFile(jsonFileName, JSON.stringify(data));
+  writeFileSync(jsonFileName, JSON.stringify(data));
   Logger.log(jsonFileName, 'WriteFile');
 };
