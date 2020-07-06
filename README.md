@@ -1,7 +1,7 @@
-<a href="http://nestjs.com/" target="blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/serverless/src/assets/img/nest.svg" height="160"/></a>
-<a href="https://graphql.org/" target="blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/serverless/src/assets/img/graphql.svg" height="160"></a>
-<a href="https://www.serverless.com/" target="blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/serverless/src/assets/img/serverless.svg" height="160"></a>
-<a href="https://typeorm.io/" target="blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/serverless/src/assets/img/typeorm.png" height="160"></a>
+<a href="http://nestjs.com/" target="_blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/serverless/src/assets/img/nest.svg" height="160"/></a>
+<a href="https://graphql.org/" target="_blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/serverless/src/assets/img/graphql.svg" height="160"></a>
+<a href="https://www.serverless.com/" target="_blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/serverless/src/assets/img/serverless.svg" height="160"></a>
+<a href="https://typeorm.io/" target="_blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/serverless/src/assets/img/typeorm.png" height="160"></a>
 
 ## Description
 
