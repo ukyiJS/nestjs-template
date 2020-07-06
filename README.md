@@ -1,6 +1,6 @@
 <div style="display: flex; justify-content: center;">
   <a href="http://nestjs.com/" target="blank" style="margin-right:3rem;">
-    <img src="https://docs.nestjs.com/assets/logo-small.svg" style="height: 160px;" />
+    <img src="https://docs.nestjs.com/assets/logo-small.svg" style="width: 160px; height: 160px;" />
   </a>
 </div>
 
