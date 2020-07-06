@@ -1,6 +1,4 @@
 import { AppModule } from '@/app.module';
-import * as env from '@/env';
-import { writeJson } from '@/utils';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { APIGatewayProxyEvent, Context, ProxyResult } from 'aws-lambda';
@@ -16,7 +14,6 @@ const createServer = async (): Promise<Server> => {
 
   return awsServerlessExpress.createServer(expressApp);
 };
-writeJson({ data: env, fileName: env.IS_PRODUCTION ? 'env.prod' : 'env.dev' });
 
 const server = from(createServer());
 
