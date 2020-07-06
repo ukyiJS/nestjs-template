@@ -1,5 +1,5 @@
-<a href="http://nestjs.com/" target="blank"><img src="https://docs.nestjs.com/assets/logo-small.svg" width="160" /></a>
-<a href="https://graphql.org/" target="blank"><img src="https://graphql.org/img/logo.svg" width="160" /></a>
+<a href="http://nestjs.com/" target="_blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/serverless/src/assets/img/nest.svg" height="160"/></a>
+<a href="https://graphql.org/" target="_blank"><img src="https://raw.githubusercontent.com/ukyiJS/nestjs-template/serverless/src/assets/img/graphql.svg" height="160"></a>
 
 ## Description
 
