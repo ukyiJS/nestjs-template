@@ -48,11 +48,11 @@ custom: # Custom 옵션
   #   webpackConfig: ./webpack.config.js
   #   includeModules: true
   # customDomain: # CloudFront 인스턴스 생성 및 Route53 도메인 레코드 생성시 필요한 부분
-  #   domainName: ${self:custom.env.domain.name} # 도메인명
-  #   stage: ${opt:alias,'dev'}
-  #   basePath: api # /api 기본 Path 로 설정함
+  # domainName: ${self:custom.env.DOMAIN} # 도메인명
+  # stage: ${opt:alias,'api'}
+  # basePath: '' # /api 기본 Path 로 설정함
   #   certificateName: ${self:custom.env.domain.cert} # ACM 에서 생성한 SSL 인증서
-  #   createRoute53Record: true # Route53 레코드 생성여부.
+  # createRoute53Record: true # Route53 레코드 생성여부.
   #   endpointType: 'edge' # regional or edge 리전별 캐싱 전략에 대한 부분 선택할 수 있음
   #   securityPolicy: tls_1_2 # TLS policy 정책
 
@@ -69,4 +69,4 @@ plugins: # 설치한 Serverless 플러그인 리스트
   - serverless-offline
   - serverless-aws-alias
   # - serverless-webpack
-  - serverless-domain-manager
+  # - serverless-domain-manager
