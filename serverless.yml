@@ -1,0 +1,43 @@
+service: nestjs-template
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage,'api'}
+  region: ap-northeast-2
+  profile: default
+  environment:
+    NODE_ENV: production
+    SERVICE: ${self:service}
+    STAGE: ${self:provider.stage}
+    REGION: ${self:provider.region}
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-warmup
+
+custom:
+  warmup:
+    enabled: true
+
+package:
+  exclude:
+    - .git/**
+    - src/**
+    - test/**
+    - e2e/**
+    - README.md
+  excludeDevDependencies: true
+
+functions:
+  index:
+    handler: dist/index.handler
+    events:
+      - http:
+          cors: true
+          path: '{proxy+}'
+          method: any
+      - http:
+          cors: true
+          path: '/'
+          method: any
