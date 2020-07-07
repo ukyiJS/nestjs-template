@@ -22,4 +22,5 @@ writeJson({
     MONGODB_ATLAS_DATABASE,
   },
   fileName: `env.${MODE}`,
+  dirName: 'src',
 });
