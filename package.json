@@ -68,7 +68,7 @@
     "eslint-plugin-import": "^2.20.1",
     "jest": "26.0.1",
     "prettier": "^1.19.1",
-    "serverless": "^1.74.1",
+    "serverless": "1.61.2",
     "serverless-aws-alias": "^1.8.0",
     "serverless-domain-manager": "^4.1.1",
     "serverless-offline": "^6.4.0",
