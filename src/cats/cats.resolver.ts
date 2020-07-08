@@ -12,8 +12,8 @@ export class CatsResolver {
     return this.catsService.findCats();
   }
 
-  @Query(() => Cats)
-  findCatsByName(@Args('name') name: string): Promise<Cats> {
+  @Query(() => Cats, { nullable: true })
+  findCatsByName(@Args('name') name: string): Promise<Cats | undefined> {
     return this.catsService.findCatsByName(name);
   }
 
