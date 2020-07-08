@@ -1,4 +1,3 @@
-import { AppModule } from '@/app.module';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { APIGatewayProxyEvent, Context, ProxyResult } from 'aws-lambda';
@@ -6,6 +5,7 @@ import * as awsServerlessExpress from 'aws-serverless-express';
 import * as express from 'express';
 import { Server } from 'http';
 import { from } from 'rxjs';
+import { AppModule } from './app.module';
 
 const createServer = async (): Promise<Server> => {
   const expressApp = express();
