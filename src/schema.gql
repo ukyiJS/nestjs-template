@@ -7,12 +7,13 @@ type Cats {
   name: String!
   kind: String!
   createdAt: Float!
+  searchCount: Float!
 }
 
 type Query {
   getHello: String!
   findCats: [Cats!]!
-  findCatsByName(name: String!): Cats!
+  findCatsByName(name: String!): Cats
 }
 
 type Mutation {
