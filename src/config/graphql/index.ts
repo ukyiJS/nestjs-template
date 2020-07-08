@@ -20,7 +20,7 @@ export class GraphqlService implements GqlOptionsFactory {
         stripFormattedExtensions: false,
         calculateHttpHeaders: false,
       },
-      formatError: (error: GraphQLError): any => ({
+      formatError: (error: GraphQLError): GraphQLFormattedError & ObjectLiteral => ({
         message: error.message,
         code: error.extensions?.code,
         locations: error.locations,
