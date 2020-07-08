@@ -21,4 +21,9 @@ describe('CatsService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('should return findCats data', async () => {
+    const result = await service.findCats();
+    expect(result).not.toBeUndefined();
+  });
 });
