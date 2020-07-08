@@ -10,10 +10,10 @@ export const {
   NODE_ENV = 'development',
   IS_OFFLINE,
   MONGODB_PORT = 11049,
-  MONGODB_ATLAS_USER,
-  MONGODB_ATLAS_PASS,
-  MONGODB_ATLAS_HOST,
-  MONGODB_ATLAS_DATABASE,
+  MONGODB_ATLAS_USER = '',
+  MONGODB_ATLAS_PASS = '',
+  MONGODB_ATLAS_HOST = '',
+  MONGODB_ATLAS_DATABASE = '',
 } = process.env;
 
 export const IS_PRODUCTION = NODE_ENV === 'production';
