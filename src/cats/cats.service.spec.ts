@@ -1,15 +1,21 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
+import { getRepositoryToken, TypeOrmModule } from '@nestjs/typeorm';
+import { getMongoRepository, MongoRepository } from 'typeorm';
+import { TypeormService } from '../config';
 import { CatsService } from './cats.service';
+import { Cats } from './model/cats.entity';
 
 describe('CatsService', () => {
   let service: CatsService;
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      providers: [CatsService],
+  beforeAll(async () => {
+    await Test.createTestingModule({
+      imports: [TypeOrmModule.forRootAsync({ useClass: TypeormService })],
+      providers: [CatsService, { provide: getRepositoryToken(Cats), useClass: MongoRepository }],
     }).compile();
 
-    service = module.get<CatsService>(CatsService);
+    const repository: MongoRepository<Cats> = getMongoRepository(Cats);
+    service = new CatsService(repository);
   });
 
   it('should be defined', () => {
