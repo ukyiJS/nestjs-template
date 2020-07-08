@@ -1,7 +1,9 @@
 import * as dotenv from 'dotenv';
 import { join } from 'path';
 
-const path = join(process.cwd(), process.env.NODE_ENV !== 'production' ? '.env.dev' : '.env.prod');
+export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+
+const path = join(process.cwd(), IS_PRODUCTION ? '.env.prod' : '.env.dev');
 dotenv.config({ path });
 
 export const {
@@ -16,7 +18,6 @@ export const {
   MONGODB_ATLAS_DATABASE = '',
 } = process.env;
 
-export const IS_PRODUCTION = NODE_ENV === 'production';
 export const MODE = IS_PRODUCTION ? 'prod' : 'dev';
 
 export const MONGODB_ATLAS_URL = `mongodb+srv://${MONGODB_ATLAS_USER}:${MONGODB_ATLAS_PASS}${MONGODB_ATLAS_HOST}/${MONGODB_ATLAS_DATABASE}`;
