@@ -12,8 +12,14 @@ export class CatsService {
     return this.catsRepository.find();
   }
 
-  findCatsByName(name: string): Promise<Cats> {
-    return this.catsRepository.findOne({ name });
+  async findCatsByName(name: string): Promise<Cats | undefined> {
+    const result = await this.catsRepository.findOne({ name });
+    if (result) {
+      const searchCount = result.searchCount + 1;
+      await this.catsRepository.update({ name }, { searchCount });
+      return { ...result, searchCount };
+    }
+    return result;
   }
 
   addCats(cats: CatsInput): Promise<Cats> {
