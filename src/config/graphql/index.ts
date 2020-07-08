@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { GqlModuleOptions, GqlOptionsFactory } from '@nestjs/graphql';
 import { GraphQLError } from 'graphql';
 import { join } from 'path';
@@ -22,14 +22,12 @@ export class GraphqlService implements GqlOptionsFactory {
         stripFormattedExtensions: false,
         calculateHttpHeaders: false,
       },
-      formatError(error: GraphQLError): any {
-        return {
-          message: error.message,
-          code: error.extensions?.code,
-          locations: error.locations,
-          path: error.path,
-        };
-      },
+      formatError: (error: GraphQLError): any => ({
+        message: error.message,
+        code: error.extensions?.code,
+        locations: error.locations,
+        path: error.path,
+      }),
     };
   }
 }
