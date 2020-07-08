@@ -1,18 +1,16 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { GqlModuleOptions, GqlOptionsFactory } from '@nestjs/graphql';
-import { GraphQLError } from 'graphql';
+import { GraphQLError, GraphQLFormattedError } from 'graphql';
 import { join } from 'path';
+import { ObjectLiteral } from 'typeorm';
 import { IS_OFFLINE, IS_PRODUCTION } from '../../env';
 
 @Injectable()
 export class GraphqlService implements GqlOptionsFactory {
   async createGqlOptions(): Promise<GqlModuleOptions> {
-    const typeOption =
-      !IS_PRODUCTION || IS_OFFLINE
-        ? { autoSchemaFile: join(process.cwd(), 'src/schema.gql') }
-        : { typePaths: ['dist/*.gql'] };
     return {
-      ...typeOption,
+      autoSchemaFile: (!IS_PRODUCTION || IS_OFFLINE) && join(process.cwd(), 'src/schema.gql'),
+      typePaths: IS_PRODUCTION ? ['dist/*.gql'] : undefined,
       cors: true,
       playground: true,
       tracing: !IS_PRODUCTION,
