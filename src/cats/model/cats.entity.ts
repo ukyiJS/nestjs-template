@@ -26,10 +26,17 @@ export class Cats {
   @Field()
   createdAt: number;
 
+  @Expose()
+  @Column()
+  @Field()
+  searchCount: number;
+
   constructor(cats: Partial<Cats>) {
-    if (!cats?.name) return;
-    Object.assign(this, plainToClass(Cats, cats, { excludeExtraneousValues: true }));
-    this._id = this._id ?? uuid.v4();
-    this.createdAt = this.createdAt ?? +new Date();
+    if (cats?.name) {
+      Object.assign(this, plainToClass(Cats, cats, { excludeExtraneousValues: true }));
+      this._id = this._id ?? uuid.v4();
+      this.createdAt = this.createdAt ?? +new Date();
+      this.searchCount = this.searchCount ?? 0;
+    }
   }
 }
