@@ -26,4 +26,9 @@ describe('CatsService', () => {
     const result = await service.findCats();
     expect(result).not.toBeUndefined();
   });
+
+  it('should return findCatsByName data', async () => {
+    const result = await service.findCatsByName('테스트냥이');
+    expect(result).not.toBeUndefined();
+  });
 });
