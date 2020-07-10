@@ -1,10 +1,11 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Expose, plainToClass } from 'class-transformer';
-import { Column, Entity, ObjectIdColumn } from 'typeorm';
+import { Column, Entity, ObjectIdColumn, Unique } from 'typeorm';
 import * as uuid from 'uuid';
 
 @Entity()
 @ObjectType()
+@Unique(['name'])
 export class Cats {
   @Expose()
   @ObjectIdColumn()
