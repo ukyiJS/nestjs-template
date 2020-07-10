@@ -1,7 +1,6 @@
 import { IS_OFFLINE, IS_PRODUCTION } from '@/env';
 import { Injectable } from '@nestjs/common';
 import { GqlModuleOptions, GqlOptionsFactory } from '@nestjs/graphql';
-import { MemcachedCache } from 'apollo-server-cache-memcached';
 import { GraphQLError } from 'graphql';
 import { join } from 'path';
 
@@ -30,12 +29,6 @@ export class GraphqlService implements GqlOptionsFactory {
           locations: error.locations,
           path: error.path,
         };
-      },
-      persistedQueries: {
-        cache: new MemcachedCache(['memcached-server-1', 'memcached-server-2', 'memcached-server-3'], {
-          retries: 10,
-          retry: 10000,
-        }),
       },
     };
   }
