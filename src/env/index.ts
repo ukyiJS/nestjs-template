@@ -1,10 +1,12 @@
 import * as dotenv from 'dotenv';
 import { join } from 'path';
+import { validateEnv } from '../utils';
 
 export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 const path = join(process.cwd(), IS_PRODUCTION ? '.env.prod' : '.env.dev');
 dotenv.config({ path });
+validateEnv();
 
 export const {
   PORT = 3000,
