@@ -33,6 +33,7 @@ package:
 functions: # lambda 함수 리스트
   index: # lambda 함수
     handler: dist/index.handler # lambda 함수 위치
+    name: template # lambda 함수 명
     events: # lambda 이벤트
       - http: # API Gateway
           path: '{proxy+}' # URI Path
