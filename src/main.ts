@@ -3,8 +3,10 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { LoggingInterceptor, TimeoutInterceptor } from './common';
 import { PORT } from './env';
+import { validateEnv } from './utils';
 
 const createServer = async () => {
+  validateEnv();
   const app = await NestFactory.create(AppModule, { cors: true });
   await app.useGlobalInterceptors(new LoggingInterceptor(), new TimeoutInterceptor()).listen(PORT);
 
