@@ -1,9 +1,9 @@
+import { LoggingInterceptor, TimeoutInterceptor } from '@/common';
+import { PORT } from '@/env';
+import { validateEnv } from '@/utils';
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { LoggingInterceptor, TimeoutInterceptor } from './common';
-import { PORT } from './env';
-import { validateEnv } from './utils';
 
 const createServer = async () => {
   validateEnv();
