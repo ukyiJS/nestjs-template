@@ -1,7 +1,7 @@
+import { TypeormService } from '@/config';
 import { Test } from '@nestjs/testing';
 import { getRepositoryToken, TypeOrmModule } from '@nestjs/typeorm';
 import { getMongoRepository, MongoRepository } from 'typeorm';
-import { TypeormService } from '../config';
 import { CatsService } from './cats.service';
 import { Cats } from './model/cats.entity';
 
