@@ -1,8 +1,8 @@
+import { LoggingInterceptor, TimeoutInterceptor } from '@/common';
+import { PORT } from '@/env';
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { LoggingInterceptor, TimeoutInterceptor } from './common';
-import { PORT } from './env';
 
 const createServer = async () => {
   const app = await NestFactory.create(AppModule, { cors: true });
