@@ -7,7 +7,7 @@ import {
   MONGODB_ATLAS_USER,
   MONGODB_PORT,
   NODE_ENV,
-} from '../env';
+} from '@/env';
 import { writeJson } from './writeJson';
 
 writeJson({
