@@ -1,9 +1,9 @@
+import { IS_OFFLINE, IS_PRODUCTION } from '@/env';
 import { Injectable } from '@nestjs/common';
 import { GqlModuleOptions, GqlOptionsFactory } from '@nestjs/graphql';
 import { GraphQLError, GraphQLFormattedError } from 'graphql';
 import { join } from 'path';
 import { ObjectLiteral } from 'typeorm';
-import { IS_OFFLINE, IS_PRODUCTION } from '../../env';
 
 @Injectable()
 export class GraphqlService implements GqlOptionsFactory {
