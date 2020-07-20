@@ -23,7 +23,7 @@
     "test:cov": "cross-env NODE_ENV=test jest --coverage",
     "test:debug": "cross-env NODE_ENV=test node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "cross-env NODE_ENV=test jest --config ./test/jest-e2e.json",
-    "config": "ts-node src/utils/createEnvJson"
+    "config": "ts-node -r tsconfig-paths/register src/utils/createEnvJson"
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",
